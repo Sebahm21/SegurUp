@@ -1,10 +1,26 @@
-import { Text, View } from 'react-native';
+import { ScrollView, Text, StyleSheet, Dimensions, SafeAreaView } from 'react-native';
 
 export default function MovilHome() {
+  const { width, height } = Dimensions.get('window');
+
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>¡Bienvenido a la versión móvil!</Text>
-      <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque obcaecati impedit quibusdam dolorem quos repudiandae, explicabo illo veniam amet fugit reprehenderit voluptatum optio? Necessitatibus quis et sit. Rerum, distinctio fugit!</Text>
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={[styles.container, { width, height }]}>
+        <Text style={styles.text}>
+          Bienvenido a la versión Movil!
+        </Text>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+  },
+  text: {
+    fontSize: 24,
+    textAlign: 'center',
+    margin: 20,
+  },
+});
