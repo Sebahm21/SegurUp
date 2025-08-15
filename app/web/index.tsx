@@ -1,11 +1,5 @@
-import { ScrollView, Text } from 'react-native';
+import Home from "./screens/Home";
 
 export default function WebHome() {
-  return (
-    <ScrollView >
-     <Text style={{ fontSize: 24, textAlign: 'center', margin: 20 }}>
-        Bienvenido a la versión web!</Text>
-    </ScrollView>
-  );
+  return <Home />;
 }
-
