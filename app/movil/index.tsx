@@ -1,5 +1,7 @@
-import Home from "./screens/Home";
+import React from 'react';
+import LoadingScreen from './screens/LoadingScreen';
 
-export default function MovilHome() {
-  return <Home />;
+
+export default function AppNavigator() {
+  return <LoadingScreen />; // O usa un componente que maneje el flujo
 }
