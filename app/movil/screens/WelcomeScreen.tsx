@@ -1,17 +1,14 @@
 import React from 'react';
 import { View, Text, ImageBackground, TouchableOpacity, StyleSheet } from 'react-native';
-import { useRouter } from 'expo-router';
 
-const WelcomeScreen: React.FC = () => {
-  const router = useRouter();
+type Props = {
+  onContinue: () => void;
+};
 
-  const handleStart = () => {
-    router.push('/home'); // Navega a /home (crea home.tsx si no existe)
-  };
-
+const WelcomeScreen: React.FC<Props> = ({ onContinue }) => {
   return (
-    <ImageBackground 
-      source={require('../../shared/assets/ciudad.jpg')} // Ajusta la ruta
+    <ImageBackground
+      source={require('../../shared/assets/ciudad.jpg')}
       style={styles.background}
       resizeMode="cover"
     >
@@ -20,11 +17,11 @@ const WelcomeScreen: React.FC = () => {
           <Text style={styles.title}>Bienvenido</Text>
           <Text style={styles.description}>
             SegurUp es una app diseñada para proteger a la comunidad.{'\n'}
-            Participa, reporta y colabora..{'\n'} 
+            Participa, reporta y colabora.{'\n'}
             Juntos hacemos la ciudad más segura.
           </Text>
         </View>
-        <TouchableOpacity style={styles.button} onPress={handleStart}>
+        <TouchableOpacity style={styles.button} onPress={onContinue}>
           <Text style={styles.buttonText}>Comencemos! →</Text>
         </TouchableOpacity>
       </View>
@@ -39,7 +36,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgba(10, 31, 46, 0.8)',
-    justifyContent: 'space-between', // Espacia el contenido entre la parte superior y inferior
+    justifyContent: 'space-between',
     padding: 20,
   },
   topContainer: {
@@ -64,8 +61,8 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 24,
     borderRadius: 25,
-    alignSelf: 'center', // Centra el botón horizontalmente
-    marginBottom: 20, // Margen inferior para simular la posición en la imagen
+    alignSelf: 'center',
+    marginBottom: 20,
   },
   buttonText: {
     color: '#FFFFFF',
